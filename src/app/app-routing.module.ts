@@ -14,7 +14,7 @@ import { RoleGuardGuard } from './services/role-guard.guard';
 import { YonetimPaneliComponent } from './yonetim-paneli/yonetim-paneli.component';
 
 const routes: Routes = [
-  // {path:'login', component:LoginComponent},
+  {path:'login', component:LoginComponent},
   {path:'anasayfa',component:PersonelComponent, canActivate:[AuthGuardService,]},
   {path:'bildirimtakvimi',component:BildirimtakvimiComponent, canActivate:[AuthGuardService,]},
   {path:'bolumistatistik',component:BolumistatistikComponent, canActivate:[AuthGuardService,RoleGuardGuard]},
