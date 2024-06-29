@@ -1,0 +1,117 @@
+<body>
+
+  
+    <app-side-nav></app-side-nav>
+    <app-nav-bar></app-nav-bar>
+  
+  
+  
+    <div class=" main1 mx-3 " style="padding-left: 250px;">
+  
+  
+  
+  
+      <div class="card nav-tabs shadow p-3 mb-5 bg-body roundedshadow" >
+        <ul class="nav " >
+          <li class="nav-item ">
+            <a href="#personelAnaSayfa" class="nav-link active" data-bs-toggle="tab">2023</a>
+          </li>
+  
+          <li class="nav-item ">
+            <a href="#bildirimler" class="nav-link" data-bs-toggle="tab">2022</a>
+          </li>
+        </ul>
+  
+  
+  
+  
+        <div class="tab-content">
+          <!-- Anasayfa -->
+          <div class="tab-pane fade show active  " id="personelAnaSayfa">
+  
+            <table class="table table-hover my-4">
+              <thead>
+               <tr>
+                <th style="text-align: center;background-color:darkgray ; color: aliceblue">AY</th>
+                <th style="text-align: center; background-color:#D8A03F ; color: aliceblue;">TOPLAM SAAT</th>
+                <th style="text-align: center;background-color: #37747a; color: aliceblue">TOPLAM ONAYLANLANMIŞ SAAT</th>
+                <th style="text-align: center; background-color:#BF5346 ; color: aliceblue;">TOPLAM ONAYLANMAMIŞ SAAT</th>              
+               </tr>             
+              </thead>
+              <tbody (click)="indexBul(data);onClick(data.projeListe)" style="cursor: pointer;" *ngFor="let data of departman" data-bs-toggle="modal" data-bs-target="#detayexampleModal" >
+                <tr *ngIf="data.yil===2023" >
+                  <td style="text-align: center; background-color:darkgray ; color: aliceblue">{{data.ay}}</td>
+                  <td style="text-align: center;background-color:#D8A03F ; color: aliceblue;">{{data.toplamSaat | number:"1.1-1"}}</td>
+                  <td style="text-align: center; background-color: #37747a; color: aliceblue">{{data.onaylanmisToplamSaat | number:"1.1-1"}}</td>
+                  <td style="text-align: center; background-color:#BF5346 ; color: aliceblue;">{{data.onaylanmamisToplamSaat | number:"1.1-1"}}</td>
+                </tr>
+               </tbody>
+            </table> 
+          </div>
+  
+  
+  
+  
+  
+          <!-- Bildirimlerim -->
+          <div class="tab-pane fade" id="bildirimler">
+           
+            <table class="table table-hover my-4">
+                <thead>
+                 <tr>
+                  <th style="text-align: center;background-color:darkgray ; color: aliceblue">AY</th>
+                  <th style="text-align: center; background-color:#D8A03F ; color: aliceblue;">TOPLAM SAAT</th>
+                  <th style="text-align: center;background-color: #37747a; color: aliceblue">TOPLAM ONAYLANLANMIŞ SAAT</th>
+                  <th style="text-align: center; background-color:#BF5346 ; color: aliceblue;">TOPLAM ONAYLANMAMIŞ SAAT</th>              
+                 </tr>             
+                </thead>
+                <tbody (click)="indexBul(data);onClick(data.projeListe)" style="cursor: pointer;" *ngFor="let data of departman" data-bs-toggle="modal" data-bs-target="#detayexampleModal" >
+                  <tr *ngIf="data.yil===2022" >
+                    <td style="text-align: center; background-color:darkgray ; color: aliceblue">{{data.ay}}</td>
+                    <td style="text-align: center;background-color:#D8A03F ; color: aliceblue;">{{data.toplamSaat | number:"1.1-1"}}</td>
+                    <td style="text-align: center; background-color: #37747a; color: aliceblue">{{data.onaylanmisToplamSaat | number:"1.1-1"}}</td>
+                    <td style="text-align: center; background-color:#BF5346 ; color: aliceblue;">{{data.onaylanmamisToplamSaat | number:"1.1-1"}}</td>
+                  </tr>
+                 </tbody>
+              </table> 
+          </div>
+  
+  
+          </div>
+        </div>
+      </div>
+    
+      <div class="modal fade" id="detayexampleModal" tabindex="-1" aria-labelledby="detayexampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-fullscreen">
+          <div class="modal-content">
+            <div class="modal-header bg-dark text-light">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">{{ay}} {{yil}}</h1>
+              <button type="button" class="btn-close  bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <app-projedetay [indexArraylar]="indexArray"></app-projedetay>
+            </div>
+            <div class="modal-footer bg-dark">
+              <button type="button" class="btnClose" data-bs-dismiss="modal"><i class="bi bi-x-lg"></i>Kapat</button>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="container">
+        
+      </div>
+  
+  
+  
+    
+  
+  
+  
+    
+  
+  
+  
+  
+  </body>

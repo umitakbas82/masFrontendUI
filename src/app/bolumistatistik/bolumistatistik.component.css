@@ -1,0 +1,87 @@
+body {
+    min-height: 100vh;
+    background-color: #d1d1d146;
+  }
+  
+a {
+    color: black
+  }
+  
+  a:hover {
+    background-color: #64858C;
+    font-weight: 700;
+    color: aliceblue;
+    transition: 0.7s;
+  
+  }
+
+  .btnClose {
+    height: 40px;
+    display: inline-block;
+    
+  
+    font-size: 14px;
+    font-weight: 700;
+    color: black;
+    border: 1px solid #C21010;
+    cursor: pointer;
+    position: relative;
+    background-color: aliceblue;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: inherit;
+  }
+  
+  .btnClose::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #C21010;
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
+  }
+  
+  .btnClose:hover{
+    color:aliceblue;
+  }
+  
+  .btnClose:hover::before {
+    transform: translateX(0);
+  }
+
+
+  .card {
+	-webkit-animation: text-focus-in 1.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+ 

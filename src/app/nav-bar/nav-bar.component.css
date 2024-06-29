@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+h6{
+    font-family: 'Poppins', sans-serif;
+    font-weight:bolder;
+    text-align: center;
+
+}
+
+a {
+    color: black
+}
+
+a:hover {
+    background-color: #64858C;
+    font-weight: 600;
+    color: aliceblue
+}
+
+
+.btn-sm {
+    color: black
+}
+
+.btn-sm:hover {
+    background-color: #496B73;
+    font-weight: 600;
+    color: aliceblue
+}
+
+.main1 {
+    padding-left: 250px;
+}
+
+
+.navbar {
+
+
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    background: #ffff;
+    -webkit-box-shadow: 20px 20px 22px #a8acad, -20px -20px 22px #ffffff;
+    box-shadow: 20px 20px 22px #a3a7a8, -20px -20px 22px #ffffff;
+}
+
+
+.btn1 {
+    height: 40px;
+    display: inline-block;
+
+    font-size: 14px;
+    font-weight: 700;
+    color: black;
+    border: 1px solid #2CA189;
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: inherit;
+}
+
+.btn1::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2CA189;
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
+}
+
+.btn1:hover{
+    color: aliceblue;
+}
+
+.btn1:hover::before {
+    transform: translateX(0);
+   
+}
+
+
+
+.btn2 {
+    height: 40px;
+    display: inline-block;
+    width: 70.90px;
+    font-size: 14px;
+    font-weight: 700;
+    color:black;
+    border: 1px solid red;
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: inherit;
+}
+
+.btn2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: red;
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
+}
+
+
+.btn2:hover{
+    color: aliceblue;
+}
+
+.btn2:hover::before {
+    transform: translateX(0);
+}
+
+
+
+/* .modal-content{
+  
+background: rgba(255, 255, 255, 0.43);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.4px);
+-webkit-backdrop-filter: blur(3.4px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+  } */
+
+  /* .card{
+    background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+  } */

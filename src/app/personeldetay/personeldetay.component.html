@@ -1,0 +1,404 @@
+
+<body class="">
+   
+       
+       
+<div class=" mb-5 mx-4 ">
+    <div class=" text-focus-in">
+      <nav class="navbar   navbar-expand-sm "  >
+        <div class="container-fluid justify-content-center">
+          <div class="d-flex   mb-sm-0 me-sm-auto "><br>
+            <ng-container *ngFor="let data of pdata">
+            <span class="ms-2 me-3 " style="font-weight: bold;">PERSONEL: {{data.adSoyad}}</span>  
+            <span class="innerData me-3" >TOPLAM BİLDİRİM SAYISI: {{data.toplamBildirim}}</span>
+            <span class="innerData me-3"  >BEKLEYEN BİLDİRİM SAYISI: {{data.bekleyenBildirimSayisi}}</span>
+            <span class="innerData me-3" >ONAYLANAN BİLDİRİM SAYISI: {{data.onaylananbildirimSayisi}}</span>
+            <span class="innerData me-3" >REDDEDİLEN BİLDİRİM SAYISI: {{data.reddeilenBildirimSayisi}}</span>
+            
+        </ng-container>         
+          </div>
+  
+          
+      
+       
+   
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+
+      
+        
+    
+
+    <div class="row ms-4 text-focus-in">
+        <div class="col">
+            
+            <nav class="navbar justify-content-center ">
+             <h4 class=" mb-2  text-focus-in " style="font-weight: bold;">BİLDİRİMLER</h4>   
+            </nav>
+       
+            <div class="row mt-2">
+                <div class="col">
+
+                    <div class="card mb-2 " style="height: 260px;width: 240px;">
+
+                        <div class="card-body float-center">
+                            <div class="col" *ngFor="let data of personelDonem">
+
+                                <div class="container float-center d-flex flex-wrap text-center by "
+                                    *ngIf="data.donemAyi===1">
+                                    <div class="card-header text-center mb-1" style="width: 250px; ">{{data.ayAdi}}
+                                    </div>
+                                    <div (click)="onSelect(item.isleri) "
+                                        *ngFor="let item of data.aylikListe;let i=index" data-toggle="tooltip"
+                                        [ngbTooltip]="item.toplamSaat">
+                                        <div *ngIf="item.calisma && item.toplamSaat >=7 && item.toplamSaat<9"
+                                            class="bx  me-1 mb-2 guntam cursor:pointer">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat <=7 "
+                                            class="bx  me-1 mb-2 gunyarim">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat >=9 "
+                                            class="bx  me-1 mb-2 gunfazla">{{i+1}}</div>
+                                        <div *ngIf="!item.calisma  " class="bx  me-1 mb-2 gunbos">{{i+1}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+
+                    <div class="card mb-2 " style="height: 260px;width: 240px;">
+
+                        <div class="card-body float-center">
+                            <div class="col" *ngFor="let data of personelDonem">
+
+                                <div class="container float-center d-flex flex-wrap text-center by "
+                                    *ngIf="data.donemAyi===2">
+                                    <div class="card-header text-center  mb-1 " style="width: 250px; ">{{data.ayAdi}}
+                                    </div>
+                                    <div (click)="onSelect(item.isleri) "
+                                        *ngFor="let item of data.aylikListe;let i=index" [ngbTooltip]="item.toplamSaat">
+                                        <div *ngIf="item.calisma && item.toplamSaat >=7 && item.toplamSaat<9"
+                                            class="bx  me-1 mb-2 guntam">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat <=7 "
+                                            class="bx  me-1 mb-2 gunyarim">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat >=9 "
+                                            class="bx  me-1 mb-2 gunfazla">{{i+1}}</div>
+                                        <div *ngIf="!item.calisma  " class="bx  me-1 mb-2 gunbos">{{i+1}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+
+                    <div class="card mb-2 " style="height: 260px;width: 240px;">
+
+                        <div class="card-body float-center">
+                            <div class="col" *ngFor="let data of personelDonem">
+
+                                <div class="container float-center d-flex flex-wrap text-center by "
+                                    *ngIf="data.donemAyi===3">
+                                    <div class="card-header text-center  mb-1 " style="width: 250px; ">{{data.ayAdi}}
+                                    </div>
+                                    <div (click)="onSelect(item.isleri) "
+                                        *ngFor="let item of data.aylikListe;let i=index" [ngbTooltip]="item.toplamSaat">
+                                        <div *ngIf="item.calisma && item.toplamSaat >=7 && item.toplamSaat<9"
+                                            class="bx  me-1 mb-2 guntam">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat <=7 "
+                                            class="bx  me-1 mb-2 gunyarim">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat >=9 "
+                                            class="bx  me-1 mb-2 gunfazla">{{i+1}}</div>
+                                        <div *ngIf="!item.calisma  " class="bx  me-1 mb-2 gunbos">{{i+1}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+
+                    <div class="card mb-2 " style="height: 260px;width: 240px;">
+
+                        <div class="card-body float-center">
+                            <div class="col" *ngFor="let data of personelDonem">
+
+                                <div class="container float-center d-flex flex-wrap text-center by "
+                                    *ngIf="data.donemAyi===4">
+                                    <div class="card-header text-center  mb-1 " style="width: 250px; ">{{data.ayAdi}}
+                                    </div>
+                                    <div (click)="onSelect(item.isleri) "
+                                        *ngFor="let item of data.aylikListe;let i=index" [ngbTooltip]="item.toplamSaat">
+                                        <div *ngIf="item.calisma && item.toplamSaat >=7 && item.toplamSaat<9"
+                                            class="bx  me-1 mb-2 guntam ">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat <=7 "
+                                            class="bx  me-1 mb-2 gunyarim">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat >=9 "
+                                            class="bx  me-1 mb-2 gunfazla">{{i+1}}</div>
+                                        <div *ngIf="!item.calisma  " class="bx  me-1 mb-2 gunbos">{{i+1}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+
+                    <div class="card mb-2 " style="height: 260px;width: 240px;">
+
+                        <div class="card-body float-center">
+                            <div class="col" *ngFor="let data of personelDonem">
+
+                                <div class="container float-center d-flex flex-wrap text-center by "
+                                    *ngIf="data.donemAyi===5">
+                                    <div class="card-header text-center  mb-1 " style="width: 250px; ">{{data.ayAdi}}
+                                    </div>
+                                    <div (click)="onSelect(item.isleri) "
+                                        *ngFor="let item of data.aylikListe;let i=index" [ngbTooltip]="item.toplamSaat">
+                                        <div *ngIf="item.calisma && item.toplamSaat >=7 && item.toplamSaat<9"
+                                            class="bx  me-1 mb-2 guntam">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat <=7 "
+                                            class="bx  me-1 mb-2 gunyarim">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat >=9 "
+                                            class="bx  me-1 mb-2 gunfazla">{{i+1}}</div>
+                                        <div *ngIf="!item.calisma  " class="bx  me-1 mb-2 gunbos">{{i+1}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+
+                    <div class="card mb-2 " style="height: 260px;width: 240px;">
+
+                        <div class="card-body float-center">
+                            <div class="col" *ngFor="let data of personelDonem">
+
+                                <div class="container float-center d-flex flex-wrap text-center by "
+                                    *ngIf="data.donemAyi===6">
+                                    <div class="card-header text-center  mb-1 " style="width: 250px; ">{{data.ayAdi}}
+                                    </div>
+                                    <div (click)="onSelect(item.isleri) "
+                                        *ngFor="let item of data.aylikListe;let i=index" [ngbTooltip]="item.toplamSaat">
+                                        <div *ngIf="item.calisma && item.toplamSaat >=7 && item.toplamSaat<9"
+                                            class="bx  me-1 mb-2 guntam">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat <=7 "
+                                            class="bx  me-1 mb-2 gunyarim">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat >=9 "
+                                            class="bx  me-1 mb-2 gunfazla">{{i+1}}</div>
+                                        <div *ngIf="!item.calisma  " class="bx  me-1 mb-2 gunbos">{{i+1}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+
+                    <div class="card mb-2 " style="height: 260px;width: 240px;">
+
+                        <div class="card-body float-center">
+                            <div class="col" *ngFor="let data of personelDonem">
+
+                                <div class="container float-center d-flex flex-wrap text-center by "
+                                    *ngIf="data.donemAyi===7">
+                                    <div class="card-header text-center  mb-1 " style="width: 250px; ">{{data.ayAdi}}
+                                    </div>
+                                    <div (click)="onSelect(item.isleri) "
+                                        *ngFor="let item of data.aylikListe;let i=index" [ngbTooltip]="item.toplamSaat">
+                                        <div *ngIf="item.calisma && item.toplamSaat >=7 && item.toplamSaat<9"
+                                            class="bx  me-1 mb-2 guntam">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat <=7 "
+                                            class="bx  me-1 mb-2 gunyarim">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat >=9 "
+                                            class="bx  me-1 mb-2 gunfazla">{{i+1}}</div>
+                                        <div *ngIf="!item.calisma  " class="bx  me-1 mb-2 gunbos">{{i+1}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+
+                    <div class="card mb-2 " style="height: 260px;width: 240px;">
+
+                        <div class="card-body float-center">
+                            <div class="col" *ngFor="let data of personelDonem">
+
+                                <div class="container float-center d-flex flex-wrap text-center by "
+                                    *ngIf="data.donemAyi===8">
+                                    <div class="card-header text-center  mb-1 " style="width: 250px; ">{{data.ayAdi}}
+                                    </div>
+                                    <div (click)="onSelect(item.isleri) "
+                                        *ngFor="let item of data.aylikListe;let i=index" [ngbTooltip]="item.toplamSaat">
+                                        <div *ngIf="item.calisma && item.toplamSaat >=7 && item.toplamSaat<9"
+                                            class="bx  me-1 mb-2 guntam">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat <=7 "
+                                            class="bx  me-1 mb-2 gunyarim">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat >=9 "
+                                            class="bx  me-1 mb-2 gunfazla">{{i+1}}</div>
+                                        <div *ngIf="!item.calisma  " class="bx  me-1 mb-2 gunbos">{{i+1}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+
+                    <div class="card mb-2 " style="height: 260px;width: 240px;">
+
+                        <div class="card-body float-center">
+                            <div class="col" *ngFor="let data of personelDonem">
+
+                                <div class="container float-center d-flex flex-wrap text-center by "
+                                    *ngIf="data.donemAyi===9">
+                                    <div class="card-header text-center  mb-1 " style="width: 250px; ">{{data.ayAdi}}
+                                    </div>
+                                    <div (click)="onSelect(item.isleri) "
+                                        *ngFor="let item of data.aylikListe;let i=index" [ngbTooltip]="item.toplamSaat">
+                                        <div *ngIf="item.calisma && item.toplamSaat >=7 && item.toplamSaat<9"
+                                            class="bx  me-1 mb-2 guntam">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat <=7 "
+                                            class="bx  me-1 mb-2 gunyarim">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat >=9 "
+                                            class="bx  me-1 mb-2 gunfazla">{{i+1}}</div>
+                                        <div *ngIf="!item.calisma  " class="bx  me-1 mb-2 gunbos">{{i+1}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+
+                    <div class="card mb-2 " style="height: 260px;width: 240px;">
+
+                        <div class="card-body float-center">
+                            <div class="col" *ngFor="let data of personelDonem">
+
+                                <div class="container float-center d-flex flex-wrap text-center by "
+                                    *ngIf="data.donemAyi===10">
+                                    <div class="card-header text-center  mb-1 " style="width: 250px; ">{{data.ayAdi}}
+                                    </div>
+                                    <div (click)="onSelect(item.isleri) "
+                                        *ngFor="let item of data.aylikListe;let i=index" [ngbTooltip]="item.toplamSaat">
+                                        <div *ngIf="item.calisma && item.toplamSaat >=7 && item.toplamSaat<9"
+                                            class="bx  me-1 mb-2 guntam">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat <=7 "
+                                            class="bx  me-1 mb-2 gunyarim">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat >=9 "
+                                            class="bx  me-1 mb-2 gunfazla">{{i+1}}</div>
+                                        <div *ngIf="!item.calisma  " class="bx  me-1 mb-2 gunbos">{{i+1}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+
+                    <div class="card mb-2 " style="height: 260px;width: 240px;">
+
+                        <div class="card-body float-center">
+                            <div class="col" *ngFor="let data of personelDonem">
+
+                                <div class="container float-center d-flex flex-wrap text-center by "
+                                    *ngIf="data.donemAyi===11">
+                                    <div class="card-header text-center  mb-1 " style="width: 250px; ">{{data.ayAdi}}
+                                    </div>
+                                    <div (click)="onSelect(item.isleri) "
+                                        *ngFor="let item of data.aylikListe;let i=index" [ngbTooltip]="item.toplamSaat">
+                                        <div *ngIf="item.calisma && item.toplamSaat >=7 && item.toplamSaat<9"
+                                            class="bx  me-1 mb-2 guntam">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat <=7 "
+                                            class="bx  me-1 mb-2 gunyarim">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat >=9 "
+                                            class="bx  me-1 mb-2 gunfazla">{{i+1}}</div>
+                                        <div *ngIf="!item.calisma  " class="bx  me-1 mb-2 gunbos">{{i+1}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col">
+
+                    <div class="card mb-2 " style="height: 260px;width: 240px;">
+
+                        <div class="card-body float-center">
+                            <div class="col" *ngFor="let data of personelDonem">
+
+                                <div class="container float-center d-flex flex-wrap text-center by "
+                                    *ngIf="data.donemAyi===12">
+                                    <div class="card-header text-center  mb-1 " style="width: 250px; ">{{data.ayAdi}}
+                                    </div>
+                                    <div (click)="onSelect(item.isleri) "
+                                        *ngFor="let item of data.aylikListe;let i=index" [ngbTooltip]="item.toplamSaat">
+                                        <div *ngIf="item.calisma && item.toplamSaat >=7 && item.toplamSaat<9"
+                                            class="bx  me-1 mb-2 guntam">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat <=7 "
+                                            class="bx  me-1 mb-2 gunyarim">{{i+1}}</div>
+                                        <div *ngIf="item.calisma && item.toplamSaat >=9 "
+                                            class="bx  me-1 mb-2 gunfazla">{{i+1}}</div>
+                                        <div *ngIf="!item.calisma  " class="bx  me-1 mb-2 gunbos">{{i+1}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-4 ">
+            <nav class="navbar justify-content-center">
+              <h4 class="ms-3 mb-2 text-center text-focus-in" style=" font-weight: bold;">BİLDİRİM
+                DETAYLARI</h4>  
+            </nav>
+            
+            <div class="container ">              
+                
+                        <ng-container  *ngFor="let veri of  aylikIsler">
+                            <div class="card cardy mt-1  ">
+                                <p class="ms-4 mt-4" style="font-weight: bold;">PROJE NO. : <span>{{veri.projectId}}</span> </p>
+                                <p class="ms-4  "style="font-weight: bold;">ÇALIŞMA TARİHİ: <span>{{veri.workDate | date: 'dd-MM-yyyy'}}</span></p>
+                                <p class="ms-4  "style="font-weight: bold;">ÇALIŞMA SÜRESİ: <span>{{veri.saat }}:{{veri.dakika}}</span></p>
+                                <p class="ms-4 "style="font-weight: bold;">AÇIKLAMA: <span>{{veri.workSheetDescription}}</span> </p>
+      
+                            </div>
+
+                        </ng-container>
+
+
+                    
+                        
+
+
+                  
+                </div>
+            </div>
+        
+    </div>
+        
+
+
+</body>

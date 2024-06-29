@@ -1,0 +1,71 @@
+
+<div>
+
+    <p-table #dt [value]="indexArraylar"    id="excel-table" [globalFilterFields]="['projeNo','projeAciklama','toplamSaat','onaylanmisToplamSaat','onaylanmamisToplamSaat']">
+        <ng-template pTemplate="caption">
+          <div class="flex ">
+              <span> 
+                <button class="  btnExcel   mt-2 mb-2" (click)="operations.exportExcel()"><i
+                class="bi bi-file-earmark-excel"></i> Excel </button>
+              </span>
+              <span class="p-input-icon-left ml-auto float-end">
+                  <i class="pi pi-search"></i>
+                  <input pInputText type="text" (input)="dt.filterGlobal( $any($event.target).value, 'contains')" placeholder="Ara" />
+              </span>
+          </div>
+      </ng-template>
+        <ng-template pTemplate="header"  style="text-align: center;">
+          <tr>
+            <th pSortableColumn="projeNo"  style="width:'150px';text-align:center;background-color:darkgray ; color: aliceblue">Proje No.<p-sortIcon field="projeNo"></p-sortIcon></th>
+            <th pSortableColumn="projeAciklama" style="width:'900px'; text-align:center; background-color:#52577D ; color: aliceblue;" >Proje Açıklaması<p-sortIcon field="projeAciklama"></p-sortIcon></th>
+            <th pSortableColumn="toplamSaat" style="width:'200px';text-align:center ; background-color:#D8A03F ; color: aliceblue;">Toplam Saat<p-sortIcon field="toplamSaat"></p-sortIcon></th>
+            <th pSortableColumn="onaylanmisToplamSaat" style="width:'250px';text-align:center; background-color: #37747a; color: aliceblue">Toplam Onaylanmış Saat<p-sortIcon field="onaylanmisToplamSaat"></p-sortIcon></th>           
+            <th pSortableColumn="onaylanmamisToplamSaat" style="width:'320px';text-align:center;background-color: #525C5D; color: aliceblue" > Toplam Onaylanmamış Saat<p-sortIcon field="onaylanmamisToplamSaat"></p-sortIcon></th>
+           
+           
+            
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-indexArraylar >
+          <tr>
+            <td style="text-align:center ; ">{{indexArraylar.projeNo }}</td>
+            <td style="text-align:center ; ">{{indexArraylar.projeAciklama}}</td>
+            <td style="text-align:center ; ">{{indexArraylar.toplamSaat | number:"1.1-1"}}</td>
+            <td style="text-align:center ; ">{{indexArraylar.onaylanmisToplamSaat | number:"1.1-1"}}</td>
+            <td style="text-align:center ; ">{{indexArraylar.onaylanmamisToplamSaat | number:"1.1-1"}}</td>
+            
+            
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+          <tr>
+              <td colspan="5" style="color: red;">Sonuç Bulunamadı</td>
+          </tr>
+      </ng-template>
+      </p-table>
+
+
+  
+    <!-- <table class="table">
+        <thead>
+            <tr>
+                <th>Proje No.</th>
+                <th>Proje Açıklaması</th>
+                <th>Toplam Saat</th>
+                <th>Toplam Onaylanmış Saat</th>
+                <th>Toplam Onaylanmamış Saat</th>                 
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of indexArraylar">
+                <td>{{data.projeNo}}</td>
+                <td>{{data.projeAciklama}}</td>
+                <td>{{data.toplamSaat}}</td>
+                <td>{{data.onaylanmisToplamSaat}}</td>
+                <td>{{data.onaylanmamisToplamSaat}}</td>
+            </tr>
+        </tbody>
+    </table> -->
+  </div>
+
+
+

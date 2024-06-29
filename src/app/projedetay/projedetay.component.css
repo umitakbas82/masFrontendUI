@@ -1,0 +1,39 @@
+.btnExcel {
+    height: 40px;
+    display: inline-block;
+  
+    font-size: 14px;
+    font-weight: 700;
+  
+    border: 0px solid;
+    cursor: pointer;
+    position: relative;
+    background-color: transparent;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    font-family: inherit;
+  }
+  
+  .btnExcel::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1E5128;
+    transform: translateX(-100%);
+    transition: all .3s;
+    z-index: -1;
+  
+  }
+  
+  .btnExcel:hover{
+    color:aliceblue;
+  }
+  
+  .btnExcel:hover::before {
+    transform: translateX(0);
+  
+  }

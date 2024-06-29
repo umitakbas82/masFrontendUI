@@ -1,0 +1,71 @@
+<body>
+  
+
+<div class="mb-4 mt-2 ">
+  <div class="main1 mx-3">
+    <nav class="navbar   navbar-expand-sm  " >
+      <div class="container-fluid justify-content-center">
+        <div class="d-flex   mb-sm-0 me-sm-auto "><br>
+          <h6 class="ms-2 ">TÜMAŞ MAS Sistemine Hoş Geldiniz.</h6>            
+        </div>
+
+        <div ngbDropdown class="d-inline-block">
+    <button type="button" class="btn btn-sm  btn4" id="dropdownBasic1" ngbDropdownToggle>
+              <i class="bi bi-person-circle me-1"></i>{{username}}
+    </button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+      <a class="dropdown-item" style=" cursor: pointer;"  data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-key-fill me-1"></i>Şifre Değiştir</a>
+              <a class="dropdown-item" style=" cursor: pointer;" (click)="auth.logOut()"><i class="bi bi-box-arrow-in-left me-1"></i>Çıkış</a>
+    </div>
+  </div>
+      </div>
+    </nav>
+  </div>
+</div>
+</body>
+
+
+<!-- 
+//Şifre Değiştir Modal/// -->
+<div class="modal fade  " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-center">
+        <h1 class="modal-title fs-5" id="exampleModalLabel" style="color: aliceblue;">Şifre Değişir</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: aliceblue;"></button>
+      </div>
+      <div class="modal-body">
+          <div class="card  ">
+            <div class="card-body">
+              <div class="container">
+                <div class="input-group mb-3">
+                  
+                  <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingInputGroup1" placeholder="Eski Şifre" [(ngModel)]="sifre.oldPassword">
+                    <label for="floatingInputGroup1">Eski Şifreniz</label>
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+                <div class="input-group mb-3">
+                  
+                  <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingInputGroup1" placeholder="Yeni Şifreniz" [(ngModel)]="sifre.newPassword">
+                    <label for="floatingInputGroup1">Yeni Şifreniz</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+              
+              
+            
+      </div>
+      
+      
+      <div class="card-footer d-flex justify-content-center mt-2"  >
+          <button class=" btn1 me-2 " data-bs-dismiss="modal" (click)="yeniPassw()">  <i class="bi bi-check-lg"></i> Kaydet</button>
+          <button class=" btn2" data-bs-dismiss="modal">  <i class="bi bi-x-lg"></i> İptal</button>
+      </div>
+    </div>
+  </div>
+</div>

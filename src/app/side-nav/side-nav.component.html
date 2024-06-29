@@ -1,0 +1,171 @@
+<div class="container-fluid  " style="max-height:0px">
+  <div class="row flex-wrap">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-0 px-0  bg-dark  bod">
+      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 bod">
+        <a  class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+        >
+          <span class="fs-2 d-none d-sm-inline mt-3 text-focus-in">
+            <img src="../../assets/img/mas_logo.png" alt="">
+            MAS</span>
+        </a>
+
+
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start mt-5 " id="menu">
+          <div class="container-fluid menu">
+            <li>
+              <a *ngIf="isPersonel" [routerLink]="['/anasayfa']" class="nav-link px-0 align-middle">
+                <i class="fs-4 bi-house-fill"></i> <span class="ms-2 d-none d-sm-inline"> Anasayfa</span>
+              </a>
+
+            </li>
+          </div>
+          <div class="container-fluid menu" *ngIf="isPersonel">
+            <li>
+              <a data-bs-toggle="modal" data-bs-target="#yeniModal" class="nav-link px-0 align-middle "
+                style="cursor:pointer"(click)=" this.myForm.reset()">
+                <i class="fs-4 bi-send-plus"></i> <span class="ms-2 d-none d-sm-inline">Bildirim Gönder
+                </span></a>
+
+            </li>
+          </div>
+          <div class="container-fluid menu">
+            <li>
+              <a *ngIf="isPersonel" [routerLink]="['/bildirimtakvimi']" class="nav-link px-0 align-middle">
+                <i class="fs-4 bi-calendar3"></i> <span class="ms-2 d-none d-sm-inline"> Bildirim Takvimi</span>
+              </a>
+            </li>
+          </div>
+          <div class="container-fluid menu">
+            <li>
+              <a *ngIf="isAdmin" [routerLink]="['/bolumistatistik']" class="nav-link px-0 align-middle">
+                <i class="fs-4 bi-graph-up-arrow"></i> <span class="ms-2 d-none d-sm-inline">Bölüm İstatistikleri</span>
+              </a>
+
+            </li>
+          </div>
+          <div class="container-fluid menu">
+            <li>
+              <a *ngIf="isAdmin" [routerLink]="['/bildirimonayi']" class="nav-link px-0 align-middle">
+                <i class="fs-4 bi-check-circle"></i> <span class="ms-2 d-none d-sm-inline"> Bildirim Onayı</span>
+              </a>
+
+            </li>
+          </div>
+          <div class="container-fluid menu">
+            <li>
+              <a *ngIf="isAdmin" [routerLink]="['/yonetimpaneli']" class="nav-link px-0 align-middle">
+                <i class="fs-4 bi-card-list"></i> <span class="ms-2 d-none d-sm-inline">Personel Listesi</span>
+              </a>
+
+            </li>
+          </div>
+          <div class="container-fluid menu">
+            <li>
+              <a *ngIf="isAdmin" [routerLink]="['/degerlendirme']" class="nav-link px-0 align-middle">
+                <i class="fs-4 bi-person-check"></i> <span class="ms-2 d-none d-sm-inline">Personel Değerlendirme</span>
+              </a>
+
+            </li>
+          </div>
+         
+        </ul>
+
+
+        <hr>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- BİLDİRİM GÖNDER MODAL -->
+<div class="modal fade   modal-lg" id="yeniModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-light">
+        <h1 class="modal-title fs-5 " id="exampleModalLabel">Yeni Çalışma Bildirimi </h1>
+        <button type="button " class="btn-close  bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+
+        <form #myForm="ngForm">
+          <div class="form-group">
+            <div class="container"> 
+
+
+              <div class="row">
+                <div class="col">
+                  <p>Proje Listesi</p>
+                  <p-dropdown [options]="projeListesi" [required]="true" name="pList" #pList="ngModel"  
+                    [(ngModel)]="bosSecilen" optionLabel="projectName" [filter]="true" filterBy="projectName"
+                    [showClear]="true" placeholder="Proje Seçiniz" [change]="projedpChanged() "></p-dropdown>
+                  <div class="text-danger blink-1"  *ngIf="!pList.valid && pList.touched">
+                    BU ALAN GEREKLİDİR!
+                  </div>
+                </div>
+                <div class="col">
+                  <p>Çalışma Türü</p>
+                  <select class="form-select form-control " style="max-width:176px ; height: 48px;" required name="wt"
+                    #wt="ngModel" [(ngModel)]="yeniBildirim.WorkType">
+                    <option value=2>Ofis</option>
+                    <option value=1>Ev</option>
+                  </select> 
+                  <div class="text-danger blink-1" *ngIf="!wt.valid && wt.touched">
+                    BU ALAN GEREKLİDİR!
+                  </div>
+                </div>
+              </div>
+  
+              <div class="row mt-2">
+                <div class="col">
+                  <p>Çalışma Günü</p>
+                  <p-calendar dateFormat="yy-mm-dd" dataType="string" [required]="true" name="date" #date="ngModel" style="width: 360px;"
+                    [(ngModel)]="yeniBildirim.WorkDate" [maxDate]="dateTime"></p-calendar>
+                  <div class="text-danger blink-1" *ngIf="!date.valid && date.touched">
+                    BU ALAN GEREKLİDİR!
+                  </div>
+                </div>
+                <div class="col">
+                  <p>Çalışma Süresi</p>
+                  <ngb-timepicker id='time' [(ngModel)]="time" [spinners]="spinners" required name="tm"
+                    #tm="ngModel"></ngb-timepicker>
+                  <div class="text-danger blink-1" *ngIf="!tm.valid && tm.touched">
+                    BU ALAN GEREKLİDİR!
+                  </div>
+                </div>
+              </div>
+              <p class="mt-3">Açıklama</p>
+              <textarea class="form-control mb-2" required name="wd" #wd="ngModel" 
+                [(ngModel)]="yeniBildirim.WorkSheetDescription"
+              style="height: 100px"></textarea>
+              <div class="text-danger blink-1" *ngIf="! wd.valid && wd.touched">
+                BU ALAN GEREKLİDİR!
+              </div>  
+            </div>
+
+            <div class="modal-footer justify-content-center ">
+              <button type="button" (click)=" this.myForm.reset()" class="btnClose" data-bs-dismiss="modal"><i
+                  class="bi bi-x-circle"></i> İptal</button>
+              <button type="button" *ngIf="this.myForm.valid" (click)="bildirimEkle(); this.myForm.reset();  " class=" btnSave"
+                data-bs-dismiss="modal"><i class="bi bi-check-lg"></i> Kaydet</button>
+            </div>
+          </div>
+
+        </form>
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,402 @@
+<body>
+    
+
+<div class="container  text-center py-4 name">
+    <ng-container *ngFor="let data of pdata" class="container">
+        <h2 style="font-weight: bold;">{{data.adSoyad}}</h2>
+    </ng-container>
+
+    
+</div>
+<div class="container survey ">
+    <div class="card shadow p-3 mb-5 bg-body-tertiary rounded">
+        <div class="card-title text-center mt-3">
+            Personel Değerlendirme Formu
+        </div>
+        <div class="card-body">
+            <form #myForm="ngForm">
+                <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center"> </th>
+                    <th class="text-center" style="width: 120px;">  </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span style="font-weight: bold;"><u> 1 - Kurum Kurallarına Uyum :</u></span> <p>Kurum bünyesinde oluşturulmuş yazılı veya sözlü olarak belirtilmiş veya kendiliğinden kurum kültürü çerçevesinde oluşmuş kurallara uyum yeteneği</p> </td>
+                    <td>
+                        <select class="form-select form-control form-select mt-3"  aria-label="Default select example" required name="select"   >
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                         <div class="text-danger blink-1" >
+                            BU ALAN GEREKLİDİR!
+                          </div>   
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;"> <u> 2 - Takım Çalışmasına Yatkınlık :</u></span> <p>
+                        Günlük çalışma hayatında işin yapılışı sırasında ortak çalışma platformu yakalama,
+                        ortak hedefleri başarma gayreti, bireysel olarak işin daha hızlı gerçekleşeceği duygusunu yenebilme
+                    </p>
+                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;"> <u> 3 - Stres Altında Çalışabilme : </u></span> <p>
+                        İş yoğunluğu, yönetici baskısı, iş arkadaşlarının veya müşterinin baskısı vs nedenlerle oluşan stres altında soğukkanlılığını koruyarak çalışma, tavırları ile stresini dışa vurmadan kibarlığını koruma, sesini yükseltmeme, etkin sonuç elde edebilmek için kıvrak
+çözümler yaratabilme
+
+                    </p>
+                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;"> <u> 4 - Öğrenme ve Kendisini Sürekli Geliştirebilme :</u></span> <p>
+                        İşinin bir parçası olarak ihtiyaç duyduğu becerileri kazanmak için araştırma, kendisini geliştirme fırsatlarını değerlendirme, bunları işinde tatbik etme konusundaki çabası
+                    </p>
+                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;"> <u> 5 - Odak Noktasını Dağıtmadan Çalışma :</u></span> <p>
+                        Günlük faaliyetleri gerçekleştirirken önceden tespit edilmiş veya görev olarak verilmiş hususlar dışında zaman hırsızları ile odağın yitirilmemesi
+                    </p>
+                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;"> <u>6 - Karar Verme Performansı :</u> </span> <p>
+                        Kendi sorumluluk alanı ile ilgili inisiyatif kullanabilme, verilen kararlarda doğruluk oranı ve karar verme hızı
+                    </p>
+                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;"><u>7 - İş Disiplini :</u> </span> <p>
+                        Görev ve sorumluluklarına birebir uyma isteği, verilen talimatları önemseme, davranışları ile disiplinini çevresine yansıtabilme
+                    </p>
+                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;"> <u>8 - Mesai Saatlerine Uyum :</u></span> <p>
+                        Tanımlanan çalışma saatlerini önemseme, çalışma disiplinin bir parçası olduğunun farkına varma ve günlük iş hayatında açıkça tatbik ederek çevresine hissettirme
+                    </p>
+                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>
+                    
+                </tr>                
+                <tr>
+                    <td><span style="font-weight: bold;">9- İletişim Yeteneği :</span> <p>
+                        Telefonda iletişim yeteneği (Kurum dışı kişilerle telefonda iletişim sırasında kullandığı ses tonu, cümle kurgu tarzı ve doğallığı),Yazılı iletişim yeteneği (Kurum içi veya dışı yazılı iletişimde imla, format ve kurgu açısından sergilediği performans)
+                        Beden dili ile iletişim yeteneği (Kurum içi veya dışı iletişimde beden dilini kullanmadaki
+                        başarı seviyesi
+                        
+                    </p>
+                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>
+                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;">10 - Dürüstlük ve Güvenilirlik :</span> <p>
+                        Günlük hayatta iş ortamında ve kurum dışı çevre ile kurduğu iletişimde maddi konulardan ayrı dürüstlük ve güvenilirlik performansı            
+                    </p>                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;">11 – Açıklık :</span> <p>
+                        Kendi işinin kalitesi veya performans seviyesinin yönetim tarafından takip edilmesini sağlamak amacı ile sistematik ve objektif yazılı veya sözlü raporlama isteği            
+                    </p>                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;">12 - Özverili Çalışma :</span> <p>
+                        İş yaşamında kendisinden beklensin / beklenmesin etkin sonuçlar elde etmek için özveri gerektiğinin farkına varma, özverili çalışmanın kendi iş etiği için koşul olduğunu bilme yeteneği        
+                    </p>                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;">13 - Görevlerini Algılama  :</span> <p>
+                        Kendisine açıkça ifade edilsin/edilmesin kendi görev sınırları içinde yer alabilecek konuları algılama        
+                    </p>                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;">14 - Yaptığı İşi Benimseme  :</span> <p>
+                        Görev alanı her ne olursa olsun yaptığı işe saygı duyma severek yapma isteği      
+                    </p>                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;">15 - Verilen Görevleri Başarma İsteği ve Kabiliyeti  :</span> <p>
+                        Kendisine verilen görevleri motivasyon unsuru olarak algılama ve hızlı reaksiyon gösterme çabası      
+                    </p>                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;">16- İş Becerisi  :</span> <p>
+                        Gerektiğinde farklı görevleri bir arada yürütebilmesi      
+                    </p>                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;">  17- Zamanlama ve Planlama  :</span> <p>
+                        Verilen işleri süresi içinde, iş akışında gecikmelere neden olmadan tamamlama     
+                    </p>                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;">  18- İş Birliği   :</span> <p>
+                        Bilgi, beceri ve deneyimlerini çalışma arkadaşlarıyla paylaşma, yöneticilerine ve çalışma    arkadaşlarına karşı saygılı davranışı
+                    </p>                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;">  19- Görevlerini Yerine Getirme Çabası   :</span> <p>
+                        Sorumluluğundaki işlerin tamamlanması için gerektiğinde ek çalışmalara katılma konusunda isteği
+                    </p>                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>                    
+                </tr>
+                <tr>
+                    <td><span style="font-weight: bold;">  20- Bilgilerin Gizliliği   :</span> <p>
+                        Bölüm içi, şirket içi toplantı, özel görüşme vb durumlarda alınan kararların -görüş ve konuşmaların başka birimlere izinsiz aktarılmasının önüne geçme
+                    </p>                        
+                        </td>
+                    <td>
+                        <select class="form-select mt-3" aria-label="Default select example">
+                            <option selected>Seçiniz</option>
+                            <option value="1">0</option>
+                            <option value="2">1</option>
+                            <option value="3">2</option>
+                            <option value="4">3</option>
+                            <option value="5">4</option>
+                            <option value="6">5</option>
+                          </select>
+                    </td>                    
+                </tr>
+            </tbody>
+
+        </table>
+            </form>
+        
+        <div class="d-flex justify-content-center">
+            <button class="btnSave " *ngIf="this.myForm.valid">Kaydet</button>
+        </div>
+        
+        </div>
+    </div>
+   
+</div>
+
+</body>

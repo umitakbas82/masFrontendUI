@@ -1,0 +1,281 @@
+<body>
+  <app-side-nav></app-side-nav>
+  <app-nav-bar></app-nav-bar>
+
+
+
+  <div class="main1 mx-3" style="width: auto">
+    <div class="card nav-tabs shadow p-3 mb-5 bg-body roundedshadow">
+      <ul class="nav ">
+        <li class="nav-item ">
+          <a href="#bildirimonay" class="nav-link active " data-bs-toggle="tab">Bildirim Onayı</a>
+        </li>
+        <li class="nav-item ">
+          <a href="#onaylibildirimler" class="nav-link " data-bs-toggle="tab">Onaylanan Bildirimler</a>
+        </li>
+        <li class="nav-item ">
+          <a href="#redbildirimler" class="nav-link" data-bs-toggle="tab">Reddedilen Bildirimler</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <!-- BildirimOnayi -->
+        <div class="tab-pane fade show active  " id="bildirimonay">
+
+          <div>
+
+            <p-table #bt [value]="departmanBildirimleri" styleClass="p-datatable-lg" [scroolable]="true"
+              scrollHeight="600px" id="excel-table"
+              [globalFilterFields]="['projeNo','adSoyad','workDate','createdtime','workHour','workDescription','status']">
+              <ng-template pTemplate="caption">
+                <div class="flex ">
+
+                  <span>
+                    <button class="btn  btnOnay  mt-2 mb-2" (click)="topluBildirimOnay();spinnerStart()" [disabled]="checkBoxitems.length < 1 && secilenBildirim.length <1"><i
+                        class="bi bi-check2-circle"></i> Bildirimleri Onayla </button>
+                  </span>
+                  <span>
+                    <button class="btn  btnRed  mt-2 mb-2" (click)="topluBildirimRed();spinnerStart() " [disabled]="checkBoxitems.length < 1 && secilenBildirim.length <1"><i class="bi bi-x-circle"></i>
+                      Bildirimleri Reddet </button>
+                  </span>
+                  <span>
+                    <button class="btn  btnExcel   mt-2 mb-2" (click)="operations.exportExcel()"><i
+                        class="bi bi-file-earmark-excel"></i> Excel </button>
+                   
+                  </span>
+                  <span class="p-input-icon-left float-end ">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="bt.filterGlobal( $any($event.target).value, 'contains')"
+                      placeholder="Ara" />
+                  </span>
+
+                </div>
+              </ng-template>
+
+              <ng-template pTemplate="header" >
+                <tr >
+
+                  <th><input class="form-check-input me-2 fs-5" type="checkbox" (click)="tumBildirimSec($event)"> İşlemler</th>
+                  <th pSortableColumn="status" >Onay Durumu<p-sortIcon field="status"></p-sortIcon></th>
+                  <th pSortableColumn="projeNo">Proje No. <p-sortIcon field="projeNo"></p-sortIcon></th>
+                  <th pSortableColumn="adSoyad">Personel Adı <p-sortIcon field="adSoyad"></p-sortIcon></th>
+                  <th pSortableColumn="workDate">Çalışma Tarihi <p-sortIcon field="workDate"></p-sortIcon></th>
+                  <th pSortableColumn="workHour">Çalışma Süresi <p-sortIcon field="workHour"></p-sortIcon></th>
+                  <th pSortableColumn="createdtime">Bildirim Tarihi <p-sortIcon field="createdtime"></p-sortIcon></th>
+                 
+                 
+                  <th pSortableColumn="projeNo"[style]="{'width':'150px'}">İş Açıklaması <p-sortIcon field="projeNo"></p-sortIcon></th>
+                </tr>
+               
+              </ng-template>
+
+              <ng-template pTemplate="body" let-departmanBildirimleri>
+                <ng-container *ngIf="departmanBildirimleri.statusid===1">
+                  <tr>
+
+
+                    <td>
+                      <input class="form-check-input fs-5" type="checkbox" [checked]="checks"
+                        (change)="onCheckboxChange($event,departmanBildirimleri.worksheetid)">
+                        
+                        <button class="btn btn-chck   ms-2 " type="button"     > <i class="bi bi-check-square"  style="color: forestgreen;"  (click)="spinnerStart()"
+                          (click)="bildirimOnayla(departmanBildirimleri.worksheetid,3)"></i></button>
+                      <button class="btn" > <i class="bi bi-x-square  " style=" color: crimson;"  (click)="spinnerStart()"  (click)="bildirimReddet(departmanBildirimleri.worksheetid,4)"></i></button>
+                    </td>
+                    <td>{{departmanBildirimleri.status}}</td>
+                    <td>{{departmanBildirimleri.projeNo}}</td>
+                    <td>{{departmanBildirimleri.adSoyad}}</td>
+                    <td>{{departmanBildirimleri.workDate | date: 'dd-MM-yyyy'}}</td>                    
+                    <td>{{departmanBildirimleri.workHour}}:{{departmanBildirimleri.workMinute}}</td>
+                    <td>{{departmanBildirimleri.createdtime|date: 'dd-MM-yyyy'}}</td>                   
+                   
+                    <td>{{departmanBildirimleri.workDescription}}</td>
+
+
+                  </tr>
+                </ng-container>
+
+              </ng-template>
+              <ng-template pTemplate="emptymessage">
+                <tr>
+                  <td colspan="5" style="color: red;">Sonuç Bulunamadı</td>
+                </tr>
+              </ng-template>
+            </p-table>
+
+          </div>
+
+        </div>
+
+        <!-- OnaylananBildirimler -->
+        <div class="tab-pane fade   " id="onaylibildirimler">
+
+
+
+
+          <div>
+
+            <p-table #ot [value]="departmanBildirimleri" styleClass="p-datatable-lg" [scroolable]="true"
+              scrollHeight="600px" id="excel-table"
+              [globalFilterFields]="['projeNo','adSoyad','workDate','createdtime','workHour','workDescription','status']">
+              <ng-template pTemplate="caption">
+                <div class="flex ">
+
+
+                  <span>
+                    <button class="  btnExcel   mt-2 mb-2" (click)="operations.exportExcel()"><i
+                        class="bi bi-file-earmark-excel"></i> Excel </button><button class="  btnExcel   mt-2 mb-2">
+                    </button>
+                  </span>
+                  <span class="p-input-icon-left float-end ">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="ot.filterGlobal( $any($event.target).value, 'contains')"
+                      placeholder="Ara" />
+                  </span>
+
+                </div>
+              </ng-template>
+
+              <ng-template pTemplate="header">
+                <tr>
+
+
+                  <th >Onay Durumu</th>
+                  <th pSortableColumn="projeNo">Proje No. <p-sortIcon field="projeNo"></p-sortIcon></th>
+                  <th pSortableColumn="adSoyad">Personel Adı <p-sortIcon field="adSoyad"></p-sortIcon></th>
+                  <th pSortableColumn="createdtime">Çalışma Tarihi <p-sortIcon field="createdtime"></p-sortIcon></th>               
+                  <th pSortableColumn="workHour">Çalışma Süresi <p-sortIcon field="workHour"></p-sortIcon></th>
+                  <th pSortableColumn="workDate">Bildirim Tarihi <p-sortIcon field="workDate"></p-sortIcon></th>
+                  <th pSortableColumn="workDescription" [style]="{'width':'150px'}">İş Açıklaması <p-sortIcon field="projeNo"></p-sortIcon></th>
+                </tr>
+                
+              </ng-template>
+
+              <ng-template pTemplate="body" let-departmanBildirimleri>
+                <ng-container *ngIf="departmanBildirimleri.statusid===3">
+                  <tr>
+
+
+
+                    <td>{{departmanBildirimleri.status}}</td>
+                    <td>{{departmanBildirimleri.projeNo}}</td>
+                    <td>{{departmanBildirimleri.adSoyad}}</td>    
+                    <td>{{departmanBildirimleri.workDate | date: 'dd-MM-yyyy'}}</td>        
+                    
+                    <td>{{departmanBildirimleri.workHour}}:{{departmanBildirimleri.workMinute}}</td>
+                    <td>{{departmanBildirimleri.createdtime|date: 'dd-MM-yyyy'}}</td>
+                    <td>{{departmanBildirimleri.workDescription}}</td>
+
+
+                  </tr>
+                </ng-container>
+
+              </ng-template>
+              <ng-template pTemplate="emptymessage">
+                <tr>
+                  <td colspan="5" style="color: red;">Sonuç Bulunamadı</td>
+                </tr>
+              </ng-template>
+            </p-table>
+
+
+
+
+
+          </div>
+
+
+
+
+        </div>
+
+
+        <!-- ReddeilenBildrimler -->
+        <div class="tab-pane fade   " id="redbildirimler">
+
+
+
+          <div>
+
+            <p-table #rt [value]="departmanBildirimleri" styleClass="p-datatable-lg" [scroolable]="true"
+              scrollHeight="600px" id="excel-table"
+              [globalFilterFields]="['projeNo','adSoyad','workDate','createdtime','workHour','workDescription','status']">
+              <ng-template pTemplate="caption">
+                <div class="flex ">
+
+
+                  <span>
+                    <button class="  btnExcel   mt-2 mb-2" (click)="operations.exportExcel()"><i
+                        class="bi bi-file-earmark-excel"></i> Excel </button><button class="  btnExcel   mt-2 mb-2">
+                    </button>
+                  </span>
+                  <span class="p-input-icon-left float-end ">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="rt.filterGlobal( $any($event.target).value, 'contains')"
+                      placeholder="Ara" />
+                  </span>
+
+                </div>
+              </ng-template>
+
+              <ng-template pTemplate="header">
+                <tr>
+
+
+                  <th >Onay Durumu</th>
+                  <th pSortableColumn="projeNo">Proje No. <p-sortIcon field="projeNo"></p-sortIcon></th>
+                  <th pSortableColumn="adSoyad">Personel Adı <p-sortIcon field="adSoyad"></p-sortIcon></th>
+                  <th pSortableColumn="createdtime">Çalışma Tarihi <p-sortIcon field="createdtime"></p-sortIcon></th>               
+                  <th pSortableColumn="workHour">Çalışma Süresi <p-sortIcon field="workHour"></p-sortIcon></th>
+                  <th pSortableColumn="workDate">Bildirim Tarihi <p-sortIcon field="workDate"></p-sortIcon></th>
+                  <th pSortableColumn="workDescription"[style]="{'width':'150px'}" >İş Açıklaması <p-sortIcon field="projeNo"></p-sortIcon></th>
+                </tr>
+                
+              </ng-template>
+
+              <ng-template pTemplate="body" let-departmanBildirimleri>
+                <ng-container *ngIf="departmanBildirimleri.statusid===4">
+                  <tr>
+
+
+
+                    <td>{{departmanBildirimleri.status}}</td>
+                    <td>{{departmanBildirimleri.projeNo}}</td>
+                    <td>{{departmanBildirimleri.adSoyad}}</td>    
+                    <td>{{departmanBildirimleri.workDate | date: 'dd-MM-yyyy'}}</td>        
+                    
+                    <td>{{departmanBildirimleri.workHour}}:{{departmanBildirimleri.workMinute}}</td>
+                    <td>{{departmanBildirimleri.createdtime|date: 'dd-MM-yyyy'}}</td>
+                    <td>{{departmanBildirimleri.workDescription}}</td>
+
+
+                  </tr>
+                </ng-container>
+
+              </ng-template>
+              <ng-template pTemplate="emptymessage">
+                <tr>
+                  <td colspan="5" style="color: red;">Sonuç Bulunamadı</td>
+                </tr>
+              </ng-template>
+            </p-table>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+</body>

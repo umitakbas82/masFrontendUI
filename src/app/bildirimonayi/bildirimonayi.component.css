@@ -1,0 +1,211 @@
+body{
+  min-height: 100vh;
+  background-color:#d1d1d146;
+}
+.main1{
+  padding-left: 250px;
+
+  
+ }
+ h6 {
+  font-weight: 600;
+}
+
+
+.bildirimtable{
+  overflow-y: scroll;
+  max-height: 700px;
+  display:block;
+}
+th{
+  width: 10%;
+  font-size: 14px;
+}
+td{
+  font-size: 14px;
+  visibility:visible ;
+}
+
+.btnExcel {
+  height: 40px;
+  display: inline-block;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  border: 0px solid;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+}
+
+.btnExcel::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1E5128;
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+
+}
+
+.btnExcel:hover{
+  color:aliceblue;
+}
+
+.btnExcel:hover::before {
+  transform: translateX(0);
+
+}
+
+
+
+.btnSelect {
+  height: 40px;
+  display: inline-block;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  border: 0px solid;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+}
+
+.btnSelect::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #FFA400;
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+
+}
+
+.btnSelect:hover{
+  color:aliceblue;
+}
+
+.btnSelect:hover::before {
+  transform: translateX(0);
+
+}
+
+
+.btnOnay {
+  height: 40px;
+  display: inline-block;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  border: 0px solid;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+}
+
+.btnOnay::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #379237;
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+
+}
+
+.btnOnay:hover{
+  color:aliceblue;
+}
+
+.btnOnay:hover::before {
+  transform: translateX(0);
+
+}
+
+
+
+.btnRed {
+  height: 40px;
+  display: inline-block;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  border: 0px solid;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+}
+
+.btnRed::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: crimson;
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+
+}
+
+.btnRed:hover{
+  color:aliceblue;
+}
+
+.btnRed:hover::before {
+  transform: translateX(0);
+
+}
+
+
+
+
+a {
+  color: black
+}
+
+a:hover {
+  background-color: #64858C;
+  font-weight: 700;
+  color: aliceblue;
+  transition: 0.7s;
+
+}
+
+/* th{
+ background-color: darkgray;
+} */

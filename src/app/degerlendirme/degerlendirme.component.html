@@ -1,0 +1,94 @@
+<body>
+    <app-side-nav></app-side-nav>
+    <app-nav-bar></app-nav-bar>
+  
+  
+    
+      <div class=" main1 mt-4  mx-3 slide">
+        <div class="card" >
+          <div class="card-body">
+            <div class="card-header">
+              <h6>Bölüm Personel Listesi</h6>
+            </div>
+            <div  >            
+                <p-table [value]="departman"   styleClass="p-datatable-sm"   [scroolable]="true" scrollHeight="700px">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th pSortableColumn="adSoyad" style="background-color:darkgray ; color: aliceblue; text-align: center;">Ad Soyad<p-sortIcon field="adSoyad"></p-sortIcon></th>
+                            <th  style="background-color:#37747A ; color: aliceblue;"></th>
+                        </tr>
+
+                    </ng-template>
+                    <ng-template  pTemplate="body" let-departman  >
+                       <tr>
+                        <td style="text-align: center;">{{departman.adSoyad}}</td>
+                        <td style="text-align: center;"><button class="btnSruv" style="text-align: center;" (click)="onClick(departman.personnelid)"><i class="bi bi-file-check me-1"></i>Değerlendir</button></td>
+                       </tr>
+                    </ng-template>
+                </p-table>
+                
+              <!-- <p-table #bt [value]="departman" styleClass="p-datatable-lg"   [scroolable]="true" scrollHeight="600px"  id="excel-table" [globalFilterFields]="['projeNo','adSoyad','workDate','createdtime','workHour','workDescription','status']">
+                <ng-template pTemplate="caption">
+                                       
+                                       
+                      <span class="p-input-icon-left  float-end ">
+                          <i class="pi pi-search"></i>
+                          <input pInputText type="text" (input)="bt.filterGlobal( $any($event.target).value, 'contains')" placeholder="Ara" />
+                      </span>
+                      
+                  
+                </ng-template>
+                
+                <ng-template pTemplate="header"  >  
+                  <tr>    
+                     
+                   
+                    <th  pSortableColumn="adSoyad" style="background-color:darkgray ; color: aliceblue;" >Ad Soyad<p-sortIcon field="adSoyad"></p-sortIcon></th>
+                    <th  pSortableColumn="toplamBildirim" style="background-color:#52577D ; color: aliceblue;" >Toplam Bildirim Sayısı <p-sortIcon field="toplamBildirim"></p-sortIcon></th>
+                    <th  pSortableColumn="bekleyenBildirimSayisi" style="background-color:#D8A03F ; color: aliceblue;" >Bekleyen Bildirim Sayısı <p-sortIcon field="bekleyenBildirimSayisi"></p-sortIcon></th>
+                    <th  pSortableColumn="onaylananbildirimSayisi" style="background-color: #37747a; color: aliceblue;" >Onaylanan Bildirim Sayısı <p-sortIcon field="onaylananbildirimSayisi" ></p-sortIcon></th>                 
+                    <th  pSortableColumn="reddeilenBildirimSayisi"  style="background-color:#BF5346 ; color: aliceblue;" >Reddedilen Bildirim Sayısı <p-sortIcon field="reddeilenBildirimSayisi"></p-sortIcon></th>
+                    
+                    
+                  </tr>
+                  <tr>
+                    
+                  </tr>
+                </ng-template>
+                
+                <ng-template pTemplate="body" let-departman  style="text-align: center;">
+                 
+                    <tr >
+                      <td style="background-color:darkgray ; color: aliceblue;">{{departman.adSoyad}}</td>
+                      <td style="text-align:center ;background-color:#52577D ; color: aliceblue;">{{departman.toplamBildirim}}</td>
+                      <td style="text-align: center; background-color:#D8A03F ; color: aliceblue;">{{departman.bekleyenBildirimSayisi }}</td>
+                      <td style="text-align: center; background-color: #37747a; color: aliceblue;">{{departman.onaylananbildirimSayisi}}</td>                    
+                      <td style="text-align: center;background-color:#BF5346 ; color: aliceblue;">{{departman.reddeilenBildirimSayisi}}</td>
+                      <td style="text-align: center;background-color:#454545 ;"><button type="button" class=" btnView" (click)="onClick(departman.personnelid)">
+                        <i class="bi bi-box-arrow-in-up-right " style="color:aliceblue"></i>
+                      </button>
+                    </td>
+                      
+                      
+                    </tr>
+                 
+                
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                  <tr>
+                      <td colspan="5" style="color: red;">Sonuç Bulunamadı</td>
+                  </tr>
+              </ng-template>
+              </p-table> -->
+  
+  
+  
+  
+  
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+     

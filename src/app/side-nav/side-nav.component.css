@@ -1,0 +1,164 @@
+.nav-link {
+  color: aliceblue
+}
+
+.bod {
+  max-width: 240px;
+}
+
+a:hover {
+  font-weight: 600;
+  color: aliceblue
+}
+
+.menu:hover{
+  font-weight: 600;
+  background-color: #364F59;
+  transition: 1.0s;   
+ 
+}
+
+
+
+.btnSave {
+  height: 40px;
+  display: inline-block;
+
+  font-size: 14px;
+  font-weight: 700;
+  color: black;
+  border: 1px solid #2CA189;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+}
+
+.btnSave::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2CA189;
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+}
+
+.btnSave:hover{
+  color:aliceblue;
+}
+
+.btnSave:hover::before {
+  transform: translateX(0);
+}
+
+.btnClose {
+  height: 40px;
+  display: inline-block;
+
+  font-size: 14px;
+  font-weight: 700;
+  color: black;
+  border: 1px solid #C21010;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+  font-family: inherit;
+}
+
+.btnClose::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #C21010;
+  transform: translateX(-100%);
+  transition: all .3s;
+  z-index: -1;
+}
+
+.btnClose:hover{
+  color:aliceblue;
+}
+
+.btnClose:hover::before {
+  transform: translateX(0);
+}
+
+
+p{
+  color: #071A26;
+  font-weight:bold ;
+}
+.text-danger{
+  font-weight: bold;
+}
+
+.blink-1 {
+  -webkit-animation: blink-1 4s both;
+          animation: blink-1 4s both;
+}
+@-webkit-keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+@keyframes blink-1 {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+
+.text-focus-in {
+	-webkit-animation: text-focus-in 1.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1.5s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+@-webkit-keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0% {
+    -webkit-filter: blur(12px);
+            filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    opacity: 1;
+  }
+}
